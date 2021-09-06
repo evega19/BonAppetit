@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bon Appetit</string>
+    <string name="scan_qr">Escanear Código QR</string>
 </resources>
