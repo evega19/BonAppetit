@@ -4,6 +4,31 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <LinearLayout
+        android:id="@+id/TopBarScanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/act4HomeLogoImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            style="@style/Logo"
+            android:layout_gravity="center"
+            android:layout_toRightOf="@+id/act4HomeLogoImageView"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
     <Button
         android:id="@+id/btnScanner"
         android:layout_width="wrap_content"

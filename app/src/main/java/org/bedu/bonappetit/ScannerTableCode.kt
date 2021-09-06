@@ -42,6 +42,7 @@ class ScannerTableCode : AppCompatActivity() {
                 Toast.makeText(this,"Escaneo cancelado",Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this,"¡Bienvenido! Mesa 1 escaneada.",Toast.LENGTH_SHORT).show()
+                //Enviamos al siguiente Activity
             }
 
         }else {
