@@ -22,17 +22,21 @@ Nuestra plicación permite:
 
 
 ### Código QR
-![QR-BonAppetit](https://user-images.githubusercontent.com/73143272/132267804-d65452fc-36a2-462e-8820-4c9a2479ed3c.png)
+
+![QR NUEVO](https://user-images.githubusercontent.com/73143272/132267991-42a5f442-0a37-4cdd-99b7-120876efb1c7.PNG)
 
 ### Flujo de nuestra app y diseño de pantallas
 
 **Flujo de Bon Appetit:**
+
 ![Flujo-BonAppetit](https://user-images.githubusercontent.com/73143272/132267814-9536a8c3-dc51-4021-8523-f851381d2a85.PNG)
 
 **Guía de estilos:**
+
 ![Guia de Estilos Bon Appetit](https://user-images.githubusercontent.com/73143272/132267832-8399df3d-ba45-40ec-bcea-3882c21a987e.PNG)
 
 **Mockups:**
+
 ![Diagrama 2](https://user-images.githubusercontent.com/73143272/132267845-3378556b-493b-4c01-a9a1-d6d2d470d127.PNG)
 
 ### Link a bases del proyecto
