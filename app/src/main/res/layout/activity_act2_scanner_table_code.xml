@@ -29,6 +29,19 @@
             />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/scan_text"
+        android:textSize="28sp"
+        android:layout_marginHorizontal="24dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/btnScanner"
+        app:layout_constraintEnd_toEndOf="@+id/TopBarScanner"
+        app:layout_constraintStart_toStartOf="@+id/TopBarScanner"
+        app:layout_constraintTop_toBottomOf="@+id/TopBarScanner" />
+
     <Button
         android:id="@+id/btnScanner"
         android:layout_width="wrap_content"
@@ -38,6 +51,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintVertical_bias="0.704" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

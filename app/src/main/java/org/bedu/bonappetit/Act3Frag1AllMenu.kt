@@ -1,5 +1,7 @@
 package org.bedu.bonappetit
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.transition.Scene
 import android.transition.TransitionInflater
@@ -19,6 +21,8 @@ class Act3Frag1AllMenu : Fragment() {
     private lateinit var sceneOne: Scene
     private lateinit var sceneTwo: Scene
     private lateinit var currentScene: Scene
+
+    private val sharedPreferences by lazy{ context?.getSharedPreferences(Act2ScannerTableCode.PREFS_NAME, Context.MODE_PRIVATE) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,9 +86,19 @@ class Act3Frag1AllMenu : Fragment() {
         binding.tenRV   .layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
 
+        binding.payment.setOnClickListener{
+            sharedPreferences?.edit()?.clear()?.apply()
+            goToMain()
+        }
 
 
 
         return binding.root
+    }
+
+    private fun goToMain(){
+        val i = Intent(requireContext(), Act2ScannerTableCode::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(i)
     }
 }
