@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragMenu">
+
+    <fragment
+        android:id="@+id/fragMenu"
+        android:name="org.bedu.bonappetit.Act3Frag1AllMenu"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_act3_frag1_all_menu">
+        <action
+            android:id="@+id/menuItemSelected"
+            app:destination="@+id/fragMenuItemSelected"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/fragMenuItemSelected"
+        android:name="org.bedu.bonappetit.Frag3MenuSelectItem"
+        android:label="fragment_item_selected"
+        tools:layout="@layout/fragment_act3_frag2_menu_select_item"
+        >
+        <action
+            android:id="@+id/retunMenu"
+            app:destination="@+id/fragMenu"
+            />
+
+    </fragment>
+
+</navigation>
