@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BonAppetit">
         <activity
-            android:name=".`Act1-2Login`"
+            android:name=".Act1_2Login"
             android:exported="true" />
         <activity android:name=".Act3Menu" />
         <activity
