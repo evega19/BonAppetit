@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/drawable/btn_line.xml" value="0.2703125" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/drawable/txt_btn_line.xml" value="0.2703125" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/activity_act11_before_login.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/activity_act12_login.xml" value="0.4" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/activity_act13_register.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/activity_act3_menu.xml" value="0.264" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/activity_before_login.xml" value="0.4" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/fragment_act3_frag1_all_menu.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/fragment_act3_frag2_menu_select_item.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/scene_one.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/genaro.marcos/AndroidStudioProjects/BonAppetit/app/src/main/res/layout/scene_two.xml" value="0.16893115942028986" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

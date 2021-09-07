@@ -30,7 +30,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/pizzaIcon"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="35dp"
@@ -47,8 +47,8 @@
             android:textColorHint="@color/colorSecondary"
             android:hint="@string/search"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintStart_toEndOf="@+id/pizzaIcon"
+            app:layout_constraintTop_toTopOf="@+id/pizzaIcon" />
 
         <ImageButton
             android:src="@drawable/ic_search"

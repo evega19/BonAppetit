@@ -7,5 +7,7 @@
 
     <string name="Loret">Loret</string>
     <string name="search">Buscar</string>
+    <string name="txt_fogotPass">¿Olvidaste tu contraseña?</string>
+    <string name="noAccount">¿No tienes una cuenta?</string>
 
 </resources>
