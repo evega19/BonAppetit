@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".`Act1-1BeforeLogin`">
+    tools:context=".Act1_1BeforeLogin">
+
 
     <ImageView
         android:id="@+id/banner"
@@ -20,10 +21,11 @@
         android:id="@+id/pizzaIcon"
         android:layout_width="159dp"
         android:layout_height="123dp"
-        android:layout_marginTop="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125"
         tools:srcCompat="@drawable/iconopizza" />
 
     <TextView
@@ -46,36 +48,39 @@
         android:layout_margin="16dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/btn_line"
-        android:text="Button"
+        android:text="Iniciar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleScreen"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/userbtn"
         android:layout_width="343dp"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/btn_line"
-        android:text="Registrarse"
+        android:text="Crear usuario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/invitbtn"
         android:layout_width="343dp"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/btn_line"
         android:text="Iniciar como invitado"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/userbtn" />
+
+
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
