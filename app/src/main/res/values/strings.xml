@@ -38,4 +38,9 @@
     <string name="courses_description">Notificaciones acerca de Bon Appetit</string>
 
 
+    <string name="Act4PayTextMyOrder">Mi Orden</string>
+    <string name="Act4PayTextToPay">Total a pagar</string>
+    <string name="Act4PayTextCost">$ 500.00 </string>
+    <string name="Act4PayTextButton">Proceder con el pago</string>
+
 </resources>

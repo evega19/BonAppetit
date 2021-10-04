@@ -30,6 +30,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <activity android:name=".Act4Payment"></activity>
         <activity
             android:name=".Act1_2Login"
             android:exported="true" />
@@ -45,6 +46,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
         </activity>
 
         <activity

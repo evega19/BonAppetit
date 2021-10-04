@@ -254,7 +254,20 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_payment"
             app:layout_constraintBottom_toTopOf="@+id/guidelineBotton"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineRight" />
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+            app:elevation="0dp"/>
+
+        <TextView
+            android:id="@+id/IndicatorItemsAddToPay"
+            android:layout_margin="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/payment"
+            app:layout_constraintTop_toTopOf="@+id/payment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

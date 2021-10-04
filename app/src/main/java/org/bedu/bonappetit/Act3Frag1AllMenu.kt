@@ -3,16 +3,22 @@ package org.bedu.bonappetit
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.transition.Scene
-import android.transition.TransitionInflater
-import android.transition.TransitionManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.bedu.bonappetit.Adapters.RVAdapItemShowMenu
+import org.bedu.bonappetit.BonAppetitOrdersDB.OrdersDB
+import org.bedu.bonappetit.Models.MyOrder
 import org.bedu.bonappetit.databinding.FragmentAct3Frag1AllMenuBinding
+import org.bedu.bonappetit.inter.ClickListener
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class Act3Frag1AllMenu : Fragment() {
 
@@ -22,7 +28,13 @@ class Act3Frag1AllMenu : Fragment() {
     private lateinit var sceneTwo: Scene
     private lateinit var currentScene: Scene
 
+    companion object{
+        val NElementsSaved = "Elements"
+    }
+
     private val sharedPreferences by lazy{ context?.getSharedPreferences(Act2ScannerTableCode.PREFS_NAME, Context.MODE_PRIVATE) }
+
+    private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +63,8 @@ class Act3Frag1AllMenu : Fragment() {
         }
         */
 
+        binding.IndicatorItemsAddToPay.text = sharedPreferences?.getInt(NElementsSaved,0)!!.toString()
+
         binding.oneTV   .text = "Entradas"
         binding.twoTV   .text = "Tacos"
         binding.threeTV .text = "Pizzas"
@@ -62,17 +76,77 @@ class Act3Frag1AllMenu : Fragment() {
         binding.nineTV  .text = "Bebida"
         binding.tenTV   .text = "Bedidas Alcohólicas"
 
-        val manager =  LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.oneRV   .adapter = RVAdapItemShowMenu(menuEntradas     )
-        binding.twoRV   .adapter = RVAdapItemShowMenu(menuTacos        )
-        binding.threeRV .adapter = RVAdapItemShowMenu(menuPizzas       )
-        binding.fourRV  .adapter = RVAdapItemShowMenu(menuEnsaladas    )
-        binding.fiveRV  .adapter = RVAdapItemShowMenu(menuPastas       )
-        binding.sixRV   .adapter = RVAdapItemShowMenu(menuPlatosFuertes)
-        binding.sevenRV .adapter = RVAdapItemShowMenu(menuPostres      )
-        binding.eightRV .adapter = RVAdapItemShowMenu(menuSushi        )
-        binding.nineRV  .adapter = RVAdapItemShowMenu(menuBebida       )
-        binding.tenRV   .adapter = RVAdapItemShowMenu(menuAlcoholica   )
+
+        binding.oneRV   .adapter = RVAdapItemShowMenu(menuEntradas     ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuEntradas[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.twoRV   .adapter = RVAdapItemShowMenu(menuTacos        ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuTacos[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.threeRV .adapter = RVAdapItemShowMenu(menuPizzas       ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuPizzas[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.fourRV  .adapter = RVAdapItemShowMenu(menuEnsaladas    ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuEnsaladas[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.fiveRV  .adapter = RVAdapItemShowMenu(menuPastas       ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuPastas[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.sixRV   .adapter = RVAdapItemShowMenu(menuPlatosFuertes,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuPlatosFuertes[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.sevenRV .adapter = RVAdapItemShowMenu(menuPostres      ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuPostres[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.eightRV .adapter = RVAdapItemShowMenu(menuSushi        ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuSushi[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.nineRV  .adapter = RVAdapItemShowMenu(menuBebida       ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuBebida[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
+        binding.tenRV   .adapter = RVAdapItemShowMenu(menuAlcoholica   ,object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                menuAlcoholica[position].apply {
+                    addElement(product!!,price!!.toDouble())
+                }
+            }
+        })
 
         binding.oneRV   .layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.twoRV   .layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -87,18 +161,61 @@ class Act3Frag1AllMenu : Fragment() {
 
 
         binding.payment.setOnClickListener{
-            sharedPreferences?.edit()?.clear()?.apply()
-            goToMain()
+            goToPay()
         }
+
+        /*binding.payment.setOnLongClickListener {
+            deleteAll()
+            true
+        }*/
 
 
 
         return binding.root
     }
 
-    private fun goToMain(){
-        val i = Intent(requireContext(), Act2ScannerTableCode::class.java)
-        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    init {
+        readElements()
+    }
+
+    private fun readElements(){
+        executor.execute(Runnable {
+            OrdersDB.getInstance(context = requireContext())?.OrdersDao()?.getMyOrders()
+            Handler(Looper.getMainLooper()).post(Runnable {
+                //Toast.makeText(context,"DBREAD!", Toast.LENGTH_SHORT).show()
+            })
+        })
+    }
+
+    private fun addElement(itemSelected: String, price: Double){
+        val newID = sharedPreferences?.getInt(NElementsSaved,0)!!+1
+        val order = MyOrder(newID,itemSelected, price)
+        executor.execute(Runnable {
+            OrdersDB.getInstance(context = requireContext())?.OrdersDao()?.insertOrder(order)
+
+            Handler(Looper.getMainLooper()).post(Runnable {
+                sharedPreferences?.edit()?.putInt(NElementsSaved,newID)?.apply()
+                binding.IndicatorItemsAddToPay.text = newID.toString()
+                Toast.makeText(context,"Preparando tu platillo!", Toast.LENGTH_SHORT).show()
+            })
+        })
+    }
+
+    private fun deleteElement(id: Int){
+        executor.execute(Runnable {
+            OrdersDB.getInstance(context = requireContext())?.OrdersDao()
+                    ?.removeOrderById(id)
+
+            Handler(Looper.getMainLooper()).post(Runnable {
+                Toast.makeText(context,"Elemento eliminado!", Toast.LENGTH_SHORT).show()
+            })
+        })
+    }
+
+
+    private fun goToPay(){
+        val i = Intent(requireContext(), Act4Payment::class.java)
+        //i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(i)
     }
 }

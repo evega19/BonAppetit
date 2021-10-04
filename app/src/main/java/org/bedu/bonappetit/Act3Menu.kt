@@ -17,10 +17,10 @@ val menuSushi           : ArrayList<Menu> = arrayListOf()
 val menuBebida          : ArrayList<Menu> = arrayListOf()
 val menuAlcoholica      : ArrayList<Menu> = arrayListOf()
 
+var menu: List<Menu>? = null
 
 class Act3Menu : AppCompatActivity() {
 
-    private var menu: List<Menu>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
