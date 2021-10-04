@@ -35,6 +35,11 @@
             android:name=".Act1_2Login"
             android:exported="true" />
         <activity android:name=".Act3Menu" />
+        <activity android:name=".Act2ScannerTableCode" />
+        <activity android:name=".Act1_4Offers" />
+        <activity android:name=".Act1_3Register" />
+        <activity
+            android:name=".Act1_1BeforeLogin"
         <activity android:name=".Act2ScannerTableCode"
             android:exported="true">
             <intent-filter>
@@ -49,7 +54,7 @@
             android:exported="true">
 
         </activity>
-        <activity android:name=".Act1_3Register" />
+
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
