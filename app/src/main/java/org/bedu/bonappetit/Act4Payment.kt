@@ -64,7 +64,7 @@ class Act4Payment : AppCompatActivity() {
 
     private fun goToMain(){
         sharedPreferences?.edit()?.clear()?.apply()
-        val i = Intent(this, Act2ScannerTableCode::class.java)
+        val i = Intent(this, Act1_1BeforeLogin::class.java)
         i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(i)
     }
