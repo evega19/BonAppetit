@@ -34,23 +34,24 @@ class Act1_2Login : AppCompatActivity() {
     }
 
 
-/*-----------Código que envia la notificacion con las ofertas------------*/
+    /*-----------Código que envia la notificacion con las ofertas------------*/
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun setNotificationChannel(){
+    private fun setNotificationChannel() {
         val name = getString(R.string.channel_courses) //Nombre del canal
         val descriptionText = getString(R.string.courses_description) //descriptcion de channel
         val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(Act1_3Register.CHANNEL_COURSES,name,importance).apply {
-            description =descriptionText
+        val channel = NotificationChannel(Act1_3Register.CHANNEL_COURSES, name, importance).apply {
+            description = descriptionText
         }
 
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         notificationManager.createNotificationChannel(channel)
 
     }
 
-    private fun offersNotification(){
+    private fun offersNotification() {
         val intent = Intent(this, Act1_4Offers::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
@@ -59,7 +60,7 @@ class Act1_2Login : AppCompatActivity() {
 
         val notification = NotificationCompat.Builder(this, Act1_3Register.CHANNEL_COURSES)
             .setSmallIcon(R.drawable.iconopizza)
-            .setColor(ContextCompat.getColor(this,R.color.colorPrimaryVariant))
+            .setColor(ContextCompat.getColor(this, R.color.colorPrimaryVariant))
             .setContentTitle(getString(R.string.action_title))
             .setContentText(getString(R.string.action_body))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -68,7 +69,8 @@ class Act1_2Login : AppCompatActivity() {
             .build()
 
         NotificationManagerCompat.from(this).run {
-            notify(20, notification)
+            notify(21, notification)
         }
 
     }
+}
