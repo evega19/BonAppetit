@@ -23,7 +23,7 @@ Nuestra plicación permite:
 
 ### Código QR
 
-![QR NUEVO](https://user-images.githubusercontent.com/73143272/132267991-42a5f442-0a37-4cdd-99b7-120876efb1c7.PNG)
+![qr_ejemplo_final](https://user-images.githubusercontent.com/73143272/135803438-a3404a61-2fea-4b69-aea3-1f0a8668b7b6.png)
 
 ### Flujo de nuestra app y diseño de pantallas
 
