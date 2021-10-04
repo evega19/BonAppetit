@@ -19,7 +19,7 @@
             android:exported="true" />
         <activity android:name=".Act3Menu" />
         <activity
-            android:name=".Act2ScannerTableCode"
+            android:name=".Act1_3Register"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
