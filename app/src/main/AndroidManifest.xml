@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BonAppetit">
+        <activity android:name=".Act4Payment"></activity>
         <activity
             android:name=".Act1_2Login"
             android:exported="true" />

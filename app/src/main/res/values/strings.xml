@@ -10,4 +10,9 @@
     <string name="txt_fogotPass">¿Olvidaste tu contraseña?</string>
     <string name="noAccount">¿No tienes una cuenta?</string>
 
+    <string name="Act4PayTextMyOrder">Mi Orden</string>
+    <string name="Act4PayTextToPay">Total a pagar</string>
+    <string name="Act4PayTextCost">$ 500.00 </string>
+    <string name="Act4PayTextButton">Proceder con el pago</string>
+
 </resources>
