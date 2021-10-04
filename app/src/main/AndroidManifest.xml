@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="org.bedu.bonappetit">
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
@@ -14,13 +16,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BonAppetit">
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/iconopizza" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="DEFAULT_CHANNEL" />
+
+        <service
+            android:name=".FirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
         <activity android:name=".Act4Payment"></activity>
         <activity
             android:name=".Act1_2Login"
             android:exported="true" />
         <activity android:name=".Act3Menu" />
+        <activity android:name=".Act2ScannerTableCode" />
+        <activity android:name=".Act1_4Offers" />
         <activity
-            android:name=".Act2ScannerTableCode"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Act1_3Register" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
