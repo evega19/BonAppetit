@@ -18,6 +18,8 @@
             android:name=".Act1_2Login"
             android:exported="true" />
         <activity android:name=".Act3Menu" />
+        <activity android:name=".Act2ScannerTableCode" />
+        <activity android:name=".Act1_4Offers" />
         <activity
             android:name=".Act1_3Register"
             android:exported="true">
