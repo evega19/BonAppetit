@@ -40,7 +40,6 @@
         <activity android:name=".Act1_3Register" />
         <activity
             android:name=".Act1_1BeforeLogin"
-        <activity android:name=".Act2ScannerTableCode"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,7 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Act1_4Offers" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
