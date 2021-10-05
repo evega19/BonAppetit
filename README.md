@@ -1,5 +1,8 @@
 # Bon Appetit
 
+
+![web_hi_res_512](https://user-images.githubusercontent.com/73143272/135951075-420616e2-1a0e-49cc-9535-7b030b6e61a7.png)
+
 ### Objetivo
 Realizar menú para restaurantes para evitar el contacto con objetos en tiempos de covid, ver disponibilidad en el restaurante, platillos, ordenar los platillos y realizar cobros con banca electrónica. 
 
