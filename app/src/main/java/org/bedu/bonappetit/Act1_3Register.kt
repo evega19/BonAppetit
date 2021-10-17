@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -45,7 +46,7 @@ class Act1_3Register : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        FirebaseApp.initializeApp(this)
         binding = ActivityAct13RegisterBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -108,11 +109,6 @@ class Act1_3Register : AppCompatActivity() {
             dialog.show()
         }
 
-
-
-
-
-
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -169,14 +165,14 @@ class Act1_3Register : AppCompatActivity() {
 
     private fun createAccount(email:String, password:String){
         println("el correo es:  ${email} la contraseña es: ${password}")
-        /*FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener{
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener{
             if(it.isSuccessful){
                 println("lo hicimos")
             }else{
                 showAlert()
             }
-        }*/
-        auth.createUserWithEmailAndPassword(email, password)
+        }
+        /*auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){ task ->
                 if (task.isSuccessful){
                     Log.d(TAG, "createUserWithEmail:Succes")
@@ -187,7 +183,8 @@ class Act1_3Register : AppCompatActivity() {
                     updateUI(null,task.exception)
                 }
 
-            }
+            }*/
+
     }
 
     private fun showAlert(){
@@ -205,6 +202,8 @@ class Act1_3Register : AppCompatActivity() {
             Utility.displaySnackBar(binding.root,"Create user was successful", this,R.color.green)
         }
     }
+
+
 
 
 }

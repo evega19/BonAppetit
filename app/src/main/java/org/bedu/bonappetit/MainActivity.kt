@@ -19,10 +19,9 @@ private lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        FirebaseApp.initializeApp(this)
+
 
         Handler().postDelayed({
             startActivity(Intent(this, Act1_1BeforeLogin::class.java))
@@ -30,12 +29,6 @@ class MainActivity : AppCompatActivity() {
         }, 2800)
 
         screen()
-
-
-
-
-
-
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
@@ -74,15 +67,6 @@ class MainActivity : AppCompatActivity() {
             start()
         }
     }
-
-
-
-
-
-
-
-
-
 
 
 

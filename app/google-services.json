@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1038898740472:android:e601611e9c13cb8f2d0f0d",
+        "mobilesdk_app_id": "1:1038898740472:android:5d096e0857c73d672d0f0d",
         "android_client_info": {
           "package_name": "org.bedu.bonappetit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1038898740472-09mau3acq2162jruo0j5nek79og79k6e.apps.googleusercontent.com",
+          "client_id": "1038898740472-5r8tjhje261rjoo0d5i81hjsmrsf2nq6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "org.bedu.bonappetit",
