@@ -5,26 +5,38 @@ import android.app.AlertDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color.red
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
-
-
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import org.bedu.bonappetit.databinding.ActivityAct13RegisterBinding
+import org.bedu.bonappetit.util.Utility
+import java.lang.Exception
 
 
 class Act1_3Register : AppCompatActivity() {
 
     private lateinit var sharedPreferences : SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
+    private lateinit var auth: FirebaseAuth
+    private lateinit var binding: ActivityAct13RegisterBinding
 
 
     companion object {
@@ -33,13 +45,27 @@ class Act1_3Register : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_act13_register)
+
+        binding = ActivityAct13RegisterBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+
+        auth = Firebase.auth
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setNotificationChannel()
         }
+        val name = binding.editTextName
+        val userName = binding.editTextUserName
+        val email = binding.editTextEmail
+        val password = binding.editTextPassword
+        val phone = binding.editTextPhone
+        val buttonRegistrar = binding.btnRegister
+        val btnTerms = binding.textViewTerms
+        var checkTerms = binding.checkRegister
 
-
+/*
         val name = findViewById<TextView>(R.id.editText_name)
         val userName = findViewById<TextView>(R.id.editText_userName)
         val email = findViewById<TextView>(R.id.editText_email)
@@ -47,14 +73,15 @@ class Act1_3Register : AppCompatActivity() {
         val phone = findViewById<TextView>(R.id.editText_phone)
         val buttonRegistrar = findViewById<Button>(R.id.btnRegister)
         val btnTerms = findViewById<TextView>(R.id.textView_terms)
-        var checkTerms = findViewById<CheckBox>(R.id.check_register)
+        var checkTerms = findViewById<CheckBox>(R.id.check_register)*/
 
 
-        buttonRegistrar.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             if((name.text.trim().isNotEmpty()) && (userName.text.trim().isNotEmpty()) && (email.text.trim().isNotEmpty()) && (password.text.trim().isNotEmpty()) && (phone.text.trim().isNotEmpty()) && checkTerms.isChecked){
-
                 startActivity(Intent(applicationContext, Act2ScannerTableCode::class.java))
                 simpleNotification()
+
+                createAccount(email.text.trim().toString(),password.text.trim().toString())
                 //offersNotification()
 
             }else{
@@ -62,7 +89,7 @@ class Act1_3Register : AppCompatActivity() {
             }
         }
 
-        btnTerms.setOnClickListener {
+        binding.checkRegister.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Terminos y Condiciones")
             builder.setMessage("La actividad del usuario en la aplicación como publicaciones o comentarios estarán sujetos a los presentes términos y condiciones. El usuario se compromete a utilizar el contenido, productos y/o servicios de forma lícita, sin faltar a la moral o al orden público, absteniéndose de realizar cualquier acto que afecte los derechos de terceros o el funcionamiento del sitio web.\n" +
@@ -98,7 +125,6 @@ class Act1_3Register : AppCompatActivity() {
         }
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
         notificationManager.createNotificationChannel(channel)
 
     }
@@ -139,6 +165,45 @@ class Act1_3Register : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun createAccount(email:String, password:String){
+        println("el correo es:  ${email} la contraseña es: ${password}")
+        /*FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener{
+            if(it.isSuccessful){
+                println("lo hicimos")
+            }else{
+                showAlert()
+            }
+        }*/
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this){ task ->
+                if (task.isSuccessful){
+                    Log.d(TAG, "createUserWithEmail:Succes")
+                    val user = auth.currentUser
+                    updateUI(user,null)
+                }else{
+                    Log.w(TAG,"createUserWithEmail:failure", task.exception)
+                    updateUI(null,task.exception)
+                }
+
+            }
+    }
+
+    private fun showAlert(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("Se ha producido un error autentificando al usuario")
+        builder.setPositiveButton("Aceptar",null)
+        val dialog:AlertDialog = builder.create()
+        dialog.show()
+    }
+    private fun updateUI(user: FirebaseUser?,exception: Exception?){
+        if(exception !=null){
+            Utility.displaySnackBar(binding.root,exception.message.toString(),this,R.color.red)
+        } else{
+            Utility.displaySnackBar(binding.root,"Create user was successful", this,R.color.green)
+        }
     }
 
 

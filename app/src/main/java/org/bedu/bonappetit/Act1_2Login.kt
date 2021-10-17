@@ -12,8 +12,14 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class Act1_2Login : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
 
     companion object {
         const val CHANNEL_COURSES = "CHANNEL_COURSES"
@@ -22,6 +28,8 @@ class Act1_2Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_act12_login)
+        auth = Firebase.auth
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setNotificationChannel()

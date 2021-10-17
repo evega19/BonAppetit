@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.FirebaseApp
 import org.bedu.bonappetit.databinding.ActivityMainBinding
 
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        FirebaseApp.initializeApp(this)
 
         Handler().postDelayed({
             startActivity(Intent(this, Act1_1BeforeLogin::class.java))

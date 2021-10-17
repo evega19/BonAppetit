@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "172077849995",
-    "project_id": "bonapetit-2480e",
-    "storage_bucket": "bonapetit-2480e.appspot.com"
+    "project_number": "1038898740472",
+    "project_id": "bon-appetit-109ad",
+    "storage_bucket": "bon-appetit-109ad.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:172077849995:android:ea0d2fc2777a6cfe1ea38e",
+        "mobilesdk_app_id": "1:1038898740472:android:e601611e9c13cb8f2d0f0d",
         "android_client_info": {
           "package_name": "org.bedu.bonappetit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "172077849995-6mt25q29mi7h3bev1bt0h2hklangjdhb.apps.googleusercontent.com",
+          "client_id": "1038898740472-09mau3acq2162jruo0j5nek79og79k6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.bedu.bonappetit",
+            "certificate_hash": "3a6d5a3a60fcbd8286102006236602fa9be87ef5"
+          }
+        },
+        {
+          "client_id": "1038898740472-62hgutj7qvgkivntkvv8eijoj338afm0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD9Eunqn7psKBE1r-7mWkIt3DQ7u-6RnJw"
+          "current_key": "AIzaSyDKooZZpabAXCz6UVk9Ds3I9NVlckL6zlg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "172077849995-6mt25q29mi7h3bev1bt0h2hklangjdhb.apps.googleusercontent.com",
+              "client_id": "1038898740472-62hgutj7qvgkivntkvv8eijoj338afm0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
