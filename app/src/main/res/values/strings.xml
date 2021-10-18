@@ -17,7 +17,6 @@
 
 
 
-
     <!-- textos para la push simple -->
     <string name="simple_title">Bon Appetit</string>
     <string name="simple_body">¡Bienvenido a nuestra comunidad Bon Appetit!</string>
@@ -44,5 +43,12 @@
     <string name="Act4PayTextToPay">Total a pagar</string>
     <string name="Act4PayTextCost">$ 500.00 </string>
     <string name="Act4PayTextButton">Proceder con el pago</string>
+
+    <string name="text_card">Número de tarjeta</string>
+    <string name="text_dateCard">Expriación</string>
+    <string name="text_cvv">CVV</string>
+    <string name="text_nameCard">Nombre titular</string>
+    <string name="text_btnCancel">Cancelar</string>
+    <string name="text_btnGuardar">Guardar</string>
 
 </resources>
