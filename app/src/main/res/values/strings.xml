@@ -49,4 +49,11 @@
     <string name="text_btnCancel">Cancelar</string>
     <string name="text_btnGuardar">Guardar</string>
 
+    <string name="name_user">Nombre</string>
+    <string name="userName_user">Nombre de Usuario</string>
+    <string name="email_user">Email</string>
+    <string name="password_user">Contraseña</string>
+    <string name="phone_user">Telefono</string>
+
+
 </resources>

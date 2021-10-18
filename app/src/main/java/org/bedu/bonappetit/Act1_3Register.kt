@@ -79,7 +79,9 @@ class Act1_3Register : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
             if((name.text.trim().isNotEmpty()) && (userName.text.trim().isNotEmpty()) && (email.text.trim().isNotEmpty()) && (password.text.trim().isNotEmpty()) && (phone.text.trim().isNotEmpty()) && checkTerms.isChecked){
+
                 startActivity(Intent(applicationContext, Act2ScannerTableCode::class.java))
+
                 simpleNotification()
 
                 createAccount(email.text.trim().toString(),password.text.trim().toString())
