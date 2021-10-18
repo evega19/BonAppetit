@@ -2,9 +2,16 @@ package org.bedu.bonappetit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.navigation.navOptions
 import io.realm.Realm
+import org.bedu.bonappetit.BonAppetitOrdersDB.OrdersDB
 import org.bedu.bonappetit.Models.Menu
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 var menuEntradas        : ArrayList<Menu> = arrayListOf()
 val menuTacos           : ArrayList<Menu> = arrayListOf()
@@ -21,6 +28,18 @@ var menu: List<Menu>? = null
 
 class Act3Menu : AppCompatActivity() {
 
+    companion object{
+        val optionAnimateFragment = navOptions {
+            anim {
+                enter = R.anim.slide_in_right
+                exit = R.anim.slide_out_left
+                popEnter = R.anim.slide_in_left
+                popExit = R.anim.slide_out_right
+            }
+        }
+    }
+
+    private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +51,21 @@ class Act3Menu : AppCompatActivity() {
         Log.e("resultados","$menu")
 
         initDB()
+
+
+    }
+
+    init {
+        readElements()
+    }
+
+    private fun readElements(){
+        executor.execute(Runnable {
+            OrdersDB.getInstance(context = this)?.OrdersDao()?.getMyOrders()
+            Handler(Looper.getMainLooper()).post(Runnable {
+                //Toast.makeText(context,"DBREAD!", Toast.LENGTH_SHORT).show()
+            })
+        })
     }
 
     private fun initDB() {

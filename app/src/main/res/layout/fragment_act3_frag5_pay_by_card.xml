@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Act3Frag5PayByCard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Act_card">
+
+        <ImageView
+            android:id="@+id/imageTarjeta"
+            android:layout_width="422dp"
+            android:layout_height="232dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/tarjetacompleta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText_CardNumber"
+            style="@style/edit_text_login"
+            android:layout_width="267dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="44dp"
+            android:hint="@string/text_card"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintTop_toBottomOf="@+id/imageTarjeta"
+            android:maxLength="16"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputCardNumber"
+            style="@style/text_input_register"
+            android:layout_width="251dp"
+            android:layout_height="35dp"
+            android:hint="@string/text_card"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_CardNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editText_CardNumber"
+            app:layout_constraintVertical_bias="1.0">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputNameCard"
+            style="@style/text_input_register"
+            android:layout_width="251dp"
+            android:layout_height="35dp"
+            android:hint="@string/text_card"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_CardNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editText_CardNumber"
+            app:layout_constraintVertical_bias="1.0">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:id="@+id/editText_NameCard"
+            style="@style/edit_text_login"
+            android:layout_width="267dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="100dp"
+            android:hint="@string/text_nameCard"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageTarjeta"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:maxLength="50"/>
+
+        <EditText
+            android:id="@+id/editText_cvv"
+            style="@style/edit_text_login"
+            android:layout_width="153dp"
+            android:layout_height="48dp"
+            android:hint="@string/text_cvv"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_dateCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.573"
+            app:layout_constraintStart_toEndOf="@+id/editText_dateCard"
+            app:layout_constraintTop_toTopOf="@+id/editText_dateCard"
+            app:layout_constraintVertical_bias="1.0"
+            android:maxLength="3"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textCvv"
+            style="@style/text_input_register"
+            android:layout_width="151dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="1dp"
+            android:hint="@string/text_cvv"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_cvv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.888"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editText_cvv"
+            app:layout_constraintVertical_bias="1.0">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textExpiresDate"
+            style="@style/text_input_register"
+            android:layout_width="135dp"
+            android:layout_height="27dp"
+            android:hint="@string/text_dateCard"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_dateCard"
+            app:layout_constraintEnd_toEndOf="@+id/editText_dateCard"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toStartOf="@+id/editText_dateCard"
+            app:layout_constraintTop_toTopOf="@+id/editText_dateCard"
+            app:layout_constraintVertical_bias="1.0">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUpdate"
+            style="@style/buttom"
+            android:layout_marginTop="28dp"
+            android:text="Pagar"
+            app:cornerRadius="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon_arrow" />
+
+
+        <ImageView
+            android:id="@+id/icon_arrow"
+            style="@style/icon_arrow"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textExpiresDate" />
+
+        <EditText
+            android:id="@+id/editText_dateCard"
+            style="@style/edit_text_login"
+            android:layout_width="156dp"
+            android:layout_height="46dp"
+            android:hint="@string/text_dateCard"
+            android:inputType="date"
+            android:maxLength="5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textCvv"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_NameCard"
+            app:layout_constraintVertical_bias="0.035" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

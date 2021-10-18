@@ -13,19 +13,111 @@
         <action
             android:id="@+id/menuItemSelected"
             app:destination="@+id/fragMenuItemSelected"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_fragMenu_to_act3Frag3ReadyToCook2"
+            app:destination="@id/act3Frag3ReadyToCook"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_fragMenu_to_act3Frag4Payment"
+            app:destination="@id/act3Frag4Payment"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+
+        <argument
+            android:name="product"
+            android:defaultValue="pp"
+            app:argType="string" />
+
     </fragment>
     <fragment
         android:id="@+id/fragMenuItemSelected"
         android:name="org.bedu.bonappetit.Frag3MenuSelectItem"
         android:label="fragment_item_selected"
-        tools:layout="@layout/fragment_act3_frag2_menu_select_item"
-        >
+        tools:layout="@layout/fragment_act3_frag2_menu_select_item">
         <action
-            android:id="@+id/retunMenu"
-            app:destination="@+id/fragMenu"
+            android:id="@+id/action_fragMenuItemSelected_to_fragMenu2"
+            app:destination="@id/fragMenu"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
 
     </fragment>
+    <fragment
+        android:id="@+id/act3Frag3ReadyToCook"
+        android:name="org.bedu.bonappetit.Act3Frag3ReadyToCook"
+        android:label="fragment_act3_frag3_ready_to_cook"
+        tools:layout="@layout/fragment_act3_frag3_ready_to_cook" >
+        <action
+            android:id="@+id/action_act3Frag3ReadyToCook_to_fragMenu"
+            app:destination="@id/fragMenu"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/act3Frag4Payment"
+        android:name="org.bedu.bonappetit.Act3Frag4Payment"
+        android:label="fragment_act3_frag4_payment"
+        tools:layout="@layout/fragment_act3_frag4_payment" >
+        <action
+            android:id="@+id/action_act3Frag4Payment_to_act3Frag5PayByCard"
+            app:destination="@id/act3Frag5PayByCard"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_act3Frag4Payment_to_act3Frag6PaymentSuceed"
+            app:destination="@id/act3Frag6PaymentSuceed"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/act3Frag5PayByCard"
+        android:name="org.bedu.bonappetit.Act3Frag5PayByCard"
+        android:label="fragment_act3_frag5_pay_by_card"
+        tools:layout="@layout/fragment_act3_frag5_pay_by_card" >
+        <action
+            android:id="@+id/action_act3Frag5PayByCard_to_act3Frag6PaymentSuceed"
+            app:destination="@id/act3Frag6PaymentSuceed"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/act3Frag6PaymentSuceed"
+        android:name="org.bedu.bonappetit.Act3Frag6PaymentSuceed"
+        android:label="fragment_act3_frag6_payment_suceed"
+        tools:layout="@layout/fragment_act3_frag6_payment_suceed" />
 
 </navigation>
