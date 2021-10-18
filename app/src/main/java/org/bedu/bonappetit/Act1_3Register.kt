@@ -78,10 +78,8 @@ class Act1_3Register : AppCompatActivity() {
 
 
         binding.btnRegister.setOnClickListener {
-            if((name.text.trim().isNotEmpty()) && (userName.text.trim().isNotEmpty()) && (email.text.trim().isNotEmpty()) && (password.text.trim().isNotEmpty()) && (phone.text.trim().isNotEmpty()) && checkTerms.isChecked){
-
+            if((name.text.trim().isNotEmpty()) && (userName.text.trim().isNotEmpty()) && (email.text.trim().toString().isNotEmpty()) && (password.text.trim().toString().isNotEmpty()) && (phone.text.trim().isNotEmpty()) && checkTerms.isChecked){
                 startActivity(Intent(applicationContext, Act2ScannerTableCode::class.java))
-
                 simpleNotification()
 
                 createAccount(email.text.trim().toString(),password.text.trim().toString())
@@ -167,14 +165,14 @@ class Act1_3Register : AppCompatActivity() {
 
     private fun createAccount(email:String, password:String){
         println("el correo es:  ${email} la contraseña es: ${password}")
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener{
+        /*FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener{
             if(it.isSuccessful){
                 println("lo hicimos")
             }else{
                 showAlert()
             }
-        }
-        /*auth.createUserWithEmailAndPassword(email, password)
+        }*/
+        auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){ task ->
                 if (task.isSuccessful){
                     Log.d(TAG, "createUserWithEmail:Succes")
@@ -184,8 +182,7 @@ class Act1_3Register : AppCompatActivity() {
                     Log.w(TAG,"createUserWithEmail:failure", task.exception)
                     updateUI(null,task.exception)
                 }
-
-            }*/
+            }
 
     }
 

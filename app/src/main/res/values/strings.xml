@@ -13,6 +13,8 @@
     <string name="network_error">Un error ha ocurrido</string>
 
     <string name="understood">Entendido</string>
+    <string name="prefs_file">org.bedu.bonappetit.PREFERENCE_FILE_KEY</string>
+
 
 
     <!-- textos para la push simple -->
