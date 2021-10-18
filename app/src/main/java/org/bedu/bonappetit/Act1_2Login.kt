@@ -85,6 +85,10 @@ class Act1_2Login : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)*/
 
         auth = Firebase.auth
+
+        binding.btnCrearCuenta.setOnClickListener {
+            startActivity(Intent(applicationContext, Act1_3Register::class.java))
+        }
     }
 
 
