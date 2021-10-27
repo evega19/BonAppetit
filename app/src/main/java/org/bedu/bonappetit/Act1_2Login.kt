@@ -47,10 +47,7 @@ class Act1_2Login : AppCompatActivity() {
     private lateinit var password : TextView
     private lateinit var binding: ActivityAct12LoginBinding
     var Ale:Int=1
-    private var RC_SIGN_IN : Int  = 123
-
-
-
+    private var RC_SIGN_IN : Int  = 100
     private lateinit var googleSignInClient: GoogleSignInClient
 
     companion object {
@@ -76,13 +73,13 @@ class Act1_2Login : AppCompatActivity() {
         offersNotification()
 
         FirebaseApp.initializeApp(this)
-/*
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.default_web_client))
             .requestEmail()
             .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this, gso)*/
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         auth = Firebase.auth
 
@@ -104,10 +101,10 @@ class Act1_2Login : AppCompatActivity() {
 
             signIn(email, password)
         }
-        /*binding.btnGoogle.setOnClickListener {
+        binding.btnGoogle.setOnClickListener {
             val signInIntent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
-        }*/
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -116,33 +113,33 @@ class Act1_2Login : AppCompatActivity() {
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val account = task.getResult(ApiException::class.java)!!
             try {
-                // Google Sign In was successful, authenticate with Firebase
-                val account = task.getResult(ApiException::class.java)!!
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
-                firebaseAuthWithGoogle(account.idToken!!)
+                if(account!=null){
+                    val credential = GoogleAuthProvider.getCredential(account.idToken,null)
+                    FirebaseAuth.getInstance().signInWithCredential(credential)
+                        .addOnCompleteListener(this){task->
+                            if (task.isSuccessful) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "signInWithCredential:success")
+                                val user = auth.currentUser
+                                //updateUI(user, null)
+                                startActivity(Intent(applicationContext, Act2ScannerTableCode::class.java))
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "signInWithCredential:failure", task.exception)
+                                updateUI(null, task.exception)
+                            }
+                        }
+                }
+
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
                 Utility.displaySnackBar(binding.root, "Google sign in failed", this, R.color.red)
             }
         }
-    }
-    private fun firebaseAuthWithGoogle(idToken: String) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user, null)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    updateUI(null, task.exception)
-                }
-            }
     }
 
     private fun signIn(email: String, password: String) {
