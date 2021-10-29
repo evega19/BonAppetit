@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1038898740472-5r8tjhje261rjoo0d5i81hjsmrsf2nq6.apps.googleusercontent.com",
+          "client_id": "1038898740472-6cp2s9dv0bdpvcm7tdrqt16pqgb5klo6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "org.bedu.bonappetit",
-            "certificate_hash": "3a6d5a3a60fcbd8286102006236602fa9be87ef5"
+            "certificate_hash": "f6fef8222aca4018c4ee2c790cc73869783c5289"
           }
         },
         {
