@@ -30,10 +30,12 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import es.dmoral.toasty.Toasty
 import org.bedu.bonappetit.databinding.ActivityAct12LoginBinding
 import org.bedu.bonappetit.databinding.ActivityAct13RegisterBinding
 import org.bedu.bonappetit.util.Utility
 import org.bedu.bonappetit.util.Utility.hideKeyboard
+import java.io.IOException
 
 enum class ProviderType{
     BASIC,
@@ -43,8 +45,10 @@ class Act1_2Login : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var buttonLogin : Button
-    private lateinit var email : TextView
-    private lateinit var password : TextView
+    private var email : EditText?=null
+    private var password : EditText?=null
+    private lateinit var emailText:String
+    private lateinit var passwordText:String
     private lateinit var binding: ActivityAct12LoginBinding
     var Ale:Int=1
     private var RC_SIGN_IN : Int  = 100
@@ -67,6 +71,9 @@ class Act1_2Login : AppCompatActivity() {
         }
         email = binding.editTextEmail
         password = binding.editTextPassword
+
+        emailText = email!!.text.trim().toString()
+        passwordText = password!!.text.trim().toString()
 
         handleClick()
         /* Poner esta función cuando haga click el ingresar para que le llegue la notificacion de ofertas*/
@@ -92,14 +99,19 @@ class Act1_2Login : AppCompatActivity() {
     private fun handleClick() {
 
         binding.btnIngresar.setOnClickListener {
-            it.hideKeyboard()
+            if(!emailText.isEmpty()|| emailText!="" || !passwordText.isEmpty()||passwordText!=""){
+                it.hideKeyboard()
 
-            binding.btnIngresar.visibility = View.GONE
+                binding.btnIngresar.visibility = View.GONE
 
-            val email = email.text.trim().toString()
-            val password = password.text.trim().toString()
+                val email = email!!.text.trim().toString()
+                val password = password!!.text.trim().toString()
 
-            signIn(email, password)
+                signIn(email, password)
+            }else{
+                Toasty.error(this,"Nombre usuario o contraseña vacios", Toasty.LENGTH_SHORT,true).show()
+            }
+
         }
         binding.btnGoogle.setOnClickListener {
             val signInIntent = googleSignInClient.signInIntent
@@ -143,18 +155,24 @@ class Act1_2Login : AppCompatActivity() {
     }
 
     private fun signIn(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "signInWithEmail:Succes")
-                    val user = auth.currentUser
-                    updateUI(user, null)
-                } else {
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    updateUI(null, task.exception)
-                }
+        try{
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Log.d(TAG, "signInWithEmail:Succes")
+                        val user = auth.currentUser
+                        updateUI(user, null)
+                    } else {
+                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        updateUI(null, task.exception)
+                    }
 
-            }
+                }
+        }catch (e: IOException){
+            println("vacio desde signin")
+        }
+
+
     }
 
     private fun updateUI(user: FirebaseUser?, exception: Exception?) {

@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import es.dmoral.toasty.Toasty
 import org.bedu.bonappetit.databinding.ActivityAct13RegisterBinding
 import org.bedu.bonappetit.util.Utility
 import java.lang.Exception
@@ -86,7 +87,7 @@ class Act1_3Register : AppCompatActivity() {
                 //offersNotification()
 
             }else{
-                Toast.makeText(this,"Error, debes de llenar todos los campos y aceptar los terminos y condiciones.", Toast.LENGTH_LONG).show()
+                Toasty.error(this,"Error, debes de llenar todos los campos y aceptar los terminos y condiciones.", Toasty.LENGTH_SHORT,true).show()
             }
         }
 
