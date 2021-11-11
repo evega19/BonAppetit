@@ -36,7 +36,10 @@ class Act3Frag4Payment : Fragment() {
 
         binding.buttonToPay.setOnClickListener {
             deleteAll()
-            findNavController().navigate(R.id.action_act3Frag4Payment_to_act3Frag5PayByCard, null, Act3Menu.optionAnimateFragment)
+            val i = Intent(requireContext(), Act4_Conekta::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(i)
+            //findNavController().navigate(R.id.action_act3Frag4Payment_to_act3Frag5PayByCard, null, Act3Menu.optionAnimateFragment)
         }
 
         binding.buttonToPayCash.setOnClickListener {

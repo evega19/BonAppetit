@@ -10,7 +10,7 @@ plugins {
 android {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\genaro.marcos\\Documents\\LlaveSantader\\debug.keystore')
+            storeFile file('C:\\Users\\campo\\Documents\\Nueva carpeta\\debug.keystore')
             storePassword 'android'
             keyAlias 'android'
             keyPassword 'android'
@@ -101,6 +101,10 @@ dependencies {
     implementation('io.conekta:conektasdk:2.0') {
         exclude group: 'com.android.support'
     }
+
+    // Facebook Share only
+    implementation 'com.facebook.android:facebook-share:8.1.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'

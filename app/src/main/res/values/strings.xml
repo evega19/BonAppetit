@@ -65,21 +65,24 @@
 
     <!--  CONEKTA  -->
     <string name="XXXX">XXXX-XXXX-XXXX-XXXX</string>
-    <string name="cardNumber">Card number:</string>
-    <string name="cardName">Name that appears on the card:</string>
-    <string name="expire">Expiration:</string>
-    <string name="cardCvc">Security code:</string>
+    <string name="cardNumber">Numero de la tarjeta:</string>
+    <string name="cardName">Nombre que aparece en la tarjeta:</string>
+    <string name="expire">Fecha de vencimiento:</string>
+    <string name="cardCvc">Codigo de seguridad:</string>
     <string name="mm">MM</string>
     <string name="yyyy">AAAA</string>
-    <string name="name">Name</string>
+    <string name="name">Nombre</string>
     <string name="cvc">CVC</string>
-    <string name="outputData">Output data:</string>
-    <string name="outputTokenData">Token output</string>
-    <string name="outputUUIDData">UUID output</string>
-    <string name="needInternetConnection">You need internet connection</string>
-    <string name="cardDataIncomplete">Incomplete card data!</string>
+    <string name="outputData"></string>
+    <string name="outputTokenData">Token:</string>
+    <string name="outputUUIDData">UUID:</string>
+    <string name="needInternetConnection">Necesitas conexión a Internet</string>
+    <string name="cardDataIncomplete">Datos de la tarjeta incompletos!</string>
     <string name="theTokenIdLabel">Token:</string>
     <string name="errorLabel">Error:</string>
     <string name="uuidDeviceLabel">UUID:</string>
+
+    <string name="facebook_app_id">652073335787077</string> <string name="fb_login_protocol_scheme">fb652073335787077</string>
+
 
 </resources>
