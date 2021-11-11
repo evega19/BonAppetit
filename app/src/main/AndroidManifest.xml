@@ -16,6 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BonAppetit">
+        <uses-library
+            android:name ="org.apache.http.legacy"
+            android:required ="false"/>
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/iconopizza" />
@@ -30,7 +33,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <activity android:name=".Act4Payment"></activity>
+        <activity android:name=".Act4_co"></activity>
         <activity
             android:name=".Act1_2Login"
             android:exported="true" />
