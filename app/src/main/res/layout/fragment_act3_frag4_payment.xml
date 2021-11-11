@@ -88,21 +88,11 @@
             android:text="@string/Act4PayTextCost"
             android:textAlignment="center"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
+            app:layout_constraintBottom_toTopOf="@+id/buttonToPayCash"
             app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
             android:layout_marginBottom="12dp"/>
 
-        <Button
-            android:id="@+id/buttonAdd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Añadir algo mas"
-            app:layout_constraintBottom_toTopOf="@+id/buttonToPayCash"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-            app:layout_constraintStart_toStartOf="@+id/guidelineLeft" />
 
         <Button
             android:id="@+id/buttonToPayCash"
@@ -120,7 +110,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Pagar con Conekta"
+            android:text="Pago con tarjeta"
             android:backgroundTint="@color/green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guidelineRight"

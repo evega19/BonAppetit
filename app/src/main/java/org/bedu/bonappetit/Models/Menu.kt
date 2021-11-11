@@ -11,4 +11,5 @@ open public class Menu: RealmObject(){
     var product: String? = null
     var category: String? = null
     var price: String? = null
+    var image: String? = null
 }

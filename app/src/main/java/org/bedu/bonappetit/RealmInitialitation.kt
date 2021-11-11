@@ -1,6 +1,7 @@
 package org.bedu.bonappetit
 
 import android.app.Application
+import com.facebook.drawee.backends.pipeline.Fresco
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.bedu.bonappetit.Models.Menu
@@ -10,6 +11,10 @@ class RealmInitialitation: Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        //Incializamos Fresco
+        Fresco.initialize(this)
+
         //inicializamos Realm
         Realm.init(this)
         //guardar nuestro json en un JSON array
@@ -24,6 +29,7 @@ class RealmInitialitation: Application() {
                     c.type = array.getJSONObject(i).getString("type")
                     c.product = array.getJSONObject(i).getString("product")
                     c.price = array.getJSONObject(i).getString("price")
+                    c.image = array.getJSONObject(i).getString("image")
                 }
             }.deleteRealmIfMigrationNeeded().name("realmDB.realm").build() //Colocamos el nombre de la DB
 

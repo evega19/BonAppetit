@@ -23,6 +23,7 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 var product: String = ""
+var image: String? = ""
 var price: Double = 0.0
 
 class Act3Frag1AllMenu : Fragment() {
@@ -82,52 +83,52 @@ class Act3Frag1AllMenu : Fragment() {
 
         binding.oneRV   .adapter = RVAdapItemShowMenu(menuEntradas     ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuEntradas[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuEntradas[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.twoRV   .adapter = RVAdapItemShowMenu(menuTacos        ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuTacos[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuTacos[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.threeRV .adapter = RVAdapItemShowMenu(menuPizzas       ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuPizzas[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuPizzas[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.fourRV  .adapter = RVAdapItemShowMenu(menuEnsaladas    ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuEnsaladas[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuEnsaladas[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.fiveRV  .adapter = RVAdapItemShowMenu(menuPastas       ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuPastas[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuPastas[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.sixRV   .adapter = RVAdapItemShowMenu(menuPlatosFuertes,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuPlatosFuertes[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuPlatosFuertes[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.sevenRV .adapter = RVAdapItemShowMenu(menuPostres      ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuPostres[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuPostres[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.eightRV .adapter = RVAdapItemShowMenu(menuSushi        ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuSushi[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuSushi[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.nineRV  .adapter = RVAdapItemShowMenu(menuBebida       ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuBebida[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuBebida[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
         binding.tenRV   .adapter = RVAdapItemShowMenu(menuAlcoholica   ,object : ClickListener{
             override fun onClick(vista: View, position: Int) {
-                menuAlcoholica[position].apply { addElement(product!!,price!!.toDouble()) }
+                menuAlcoholica[position].apply { addElement(product!!,price!!.toDouble(),image) }
             }
         })
 
@@ -153,7 +154,7 @@ class Act3Frag1AllMenu : Fragment() {
         }
         return binding.root
     }
-    private fun addElement(itemSelected: String, priceItem: Double){
+    private fun addElement(itemSelected: String, priceItem: Double, imageSelected:String?){
         /*val newID = sharedPreferences?.getInt(NElementsSaved,0)!!+1
         val order = MyOrder(newID,itemSelected, price)
         executor.execute(Runnable {
@@ -166,6 +167,7 @@ class Act3Frag1AllMenu : Fragment() {
         })*/
         product = itemSelected
         price = priceItem
+        image = imageSelected
         findNavController().navigate(R.id.fragMenuItemSelected, null, Act3Menu.optionAnimateFragment)
     }
 

@@ -34,6 +34,7 @@ class Frag3MenuSelectItem : Fragment() {
             addElement(product,price)
             findNavController().navigate(R.id.action_fragMenuItemSelected_to_fragMenu2, null, Act3Menu.optionAnimateFragment)
         }
+        binding.imageView.setImageURI(image)
         return binding.root
     }
 

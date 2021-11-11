@@ -16,11 +16,10 @@
         android:layout_height="wrap_content"
         android:padding="4dp"
         android:id="@+id/diaFondo">
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/rv_image"
             android:layout_width="100dp"
             android:layout_height="140dp"
-            android:id="@+id/rv_image"
-            android:src="@drawable/logobonappetit"
             />
         <TextView
             android:id="@+id/rv_title"

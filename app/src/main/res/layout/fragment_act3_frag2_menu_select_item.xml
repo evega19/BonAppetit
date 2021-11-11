@@ -38,7 +38,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_end="8dp" />
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="200dp"
@@ -50,11 +50,11 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
-            android:text="@string/large_text"
+            android:text="@string/large_text_description"
             android:textSize="20sp"
             android:padding="8dp"/>
 
@@ -76,7 +76,7 @@
                     android:textSize="28sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Loret"/>
+                    android:text="Personaliza"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -85,16 +85,16 @@
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Con queso"/>
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Sin cebolla"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Con extra salsa"/>
                 </RadioGroup>
 
                 <TextView
@@ -102,7 +102,7 @@
                     android:textSize="28sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Loret"/>
+                    android:text="Agrega"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -111,16 +111,16 @@
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Pico de gallo"/>
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Tortilla extra"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Salsa extra"/>
                 </RadioGroup>
 
                 <TextView
@@ -128,7 +128,7 @@
                     android:textSize="28sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Loret"/>
+                    android:text="Para tomar"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -137,16 +137,16 @@
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Refresco"/>
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Cerveza"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/Loret"/>
+                        android:text="Vino"/>
                 </RadioGroup>
 
             </LinearLayout>

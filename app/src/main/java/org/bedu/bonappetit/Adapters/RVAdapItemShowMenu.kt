@@ -20,6 +20,8 @@ class RVAdapItemShowMenu(val menuCategory: ArrayList<Menu>, var listener: ClickL
         fun bind(menu: Menu){
             binding.rvTitle.text = menu.product
             binding.cardRvBook.setOnClickListener(this)
+            //binding.rvImage.setImageURI("https://raw.githubusercontent.com/beduExpert/Android-Avanzado-2021/main/Sesion-05/Ejemplo-01/base/app/src/main/res/drawable/bedu.png")
+            binding.rvImage.setImageURI(menu.image)
         }
 
         override fun onClick(view: View?) {
